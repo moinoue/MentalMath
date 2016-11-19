@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Speech Recognition Sample</string>
+    <string name="mic_button">Think for me</string>
+    <string name="info_text">Press the microphone then ask a math problem</string>
+    <string name="not_supported">Not supported!</string>
+    <string name="blank"> </string>
+</resources>
