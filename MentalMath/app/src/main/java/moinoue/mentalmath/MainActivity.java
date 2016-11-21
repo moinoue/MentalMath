@@ -7,7 +7,7 @@ import android.os.Bundle;
     This project is essentially just a calculator that uses the user's voice as
     an input and outputs the answer in speech/text display
 
-    Voice -> String -> Tokens -> Evaluation -> String -> Voice
+    Voice -> String -> Tokens -> Evaluation -> Error Handling -> String -> Voice
 
     For the time being, only text input will be allowed until the calculator is
     finished being developed as it isn't really needed until the end
