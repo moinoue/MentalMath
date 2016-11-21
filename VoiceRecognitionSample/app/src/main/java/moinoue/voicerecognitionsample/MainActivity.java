@@ -11,6 +11,8 @@ import android.speech.RecognizerIntent;
 import android.widget.Toast;
 import java.util.ArrayList;
 import java.util.Locale;
+import net.objecthunter.exp4j.Expression;
+import net.objecthunter.exp4j.ExpressionBuilder;
 
 /*
     This is a sample just using the build in android library to produce a string
@@ -63,8 +65,17 @@ public class MainActivity extends Activity {
         if(requestCode == REQUIRED_SPEECH_CODE){
             if(resultCode == RESULT_OK && data != null){
                 ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
+
+                try {
+                    Expression expression = new ExpressionBuilder(result.get(0)).build();
+                    double rlt = expression.evaluate();
+                    displayInput.setText(Double.toString(rlt));//(result.get(0));
+                }
+                catch(Exception e){
+                    displayInput.setText(e.toString());//(result.get(0));
+                }
                 //Grab what the user said and display it
-                displayInput.setText(result.get(0));
+                //displayInput.setText(Double.toString(rlt));//(result.get(0));
             }
         }
     }
