@@ -99,13 +99,13 @@ public class Lexer implements TokenType {
                     continue;
             }
             //Numbers
-            if (Pattern.matches("[0-9]*.[0-9]+", strArray[i])){
+            if (Pattern.matches("[+-]?[0-9]*.[0-9]+", strArray[i])){
                 Token tok = new Token(NUMBERS, Float.parseFloat(strArray[i]));
                 tokens.add(tok);
                 continue;
             }
 
-            if (Pattern.matches("[0-9]+", strArray[i])){
+            if (Pattern.matches("[+-]?[0-9]+", strArray[i])){
                 Token tok = new Token(NUMBERS, Float.parseFloat(strArray[i]));
                 tokens.add(tok);
                 continue;
