@@ -1,8 +1,5 @@
 package moinoue.mentalmath;
 
-import java.util.ArrayList;
-import java.util.regex.Pattern;
-
 public interface TokenType{
 
     int NUMBERS = 0;  //numbers (integers/floats)
@@ -17,6 +14,8 @@ public interface TokenType{
     int SQRT    = 9;  //square root
     int CBRT    = 10; //cube root
     int ROOT    = 11; //root
+    int RPAR    = 12; //Right Parenthesis
+    int LPAR    = 13; //Left Parenthesis
 
     int EOL     = 100; //end of line
 

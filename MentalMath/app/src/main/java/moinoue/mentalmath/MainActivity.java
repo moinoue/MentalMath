@@ -18,6 +18,7 @@ public class MainActivity extends Activity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        Lexer lexer = new Lexer("log of exponent of 4 plus 5 * 6 square square root root 23.097");
+        Lexer lexer = new Lexer("log of exponent of -4 plus +5 * 6 square square root root 23.097");
+        Parser parser = new Parser(lexer);
     }
 }

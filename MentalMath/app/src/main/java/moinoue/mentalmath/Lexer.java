@@ -26,31 +26,55 @@ public class Lexer implements TokenType {
         
         for (int i = 0; i<strArray.length; i++){
 
+            if (strArray[i].equals("(")) {
+                Token tok = new Token(RPAR, 0);
+                tokens.add(tok);
+                continue;
+            }
+            if (strArray[i].equals("right") && strArray[i+1].equals("parenthesis")) {
+                Token tok = new Token(RPAR, 0);
+                tokens.add(tok);
+                continue;
+            }
+            if (strArray[i].equals(")")) {
+                Token tok = new Token(LPAR, 0);
+                tokens.add(tok);
+                continue;
+            }
+            if (strArray[i].equals("left") && strArray[i+1].equals("parenthesis")) {
+                Token tok = new Token(LPAR, 0);
+                tokens.add(tok);
+                continue;
+            }
             if (strArray[i].equals("plus")|| strArray[i].equals("+") || strArray[i] .equals("added") ){
- 		if(strArray[i+1].equals("by"))
-			i++;
-	        Token tok = new Token(PLUS, 0);
+ 		        if(strArray[i+1].equals("by")) {
+                    i++;
+                }
+	             Token tok = new Token(PLUS, 0);
                 tokens.add(tok);
                 continue;
             }
             if (strArray[i].equals("minus")|| strArray[i].equals("-") || strArray[i].equals("subtracted" )){
-        	if(strArray[i+1].equals("by"))
-			i++;
+                if(strArray[i+1].equals("by")) {
+                    i++;
+                }
 	        Token tok = new Token(MINUS, 0);
                 tokens.add(tok);
                 continue;
             }
-            if (strArray[i].equals("times")|| strArray[i].equals("*") || strArray[i].equals("x") || strArray[i].equals("product") || strArray[i].equals("into") || strArray[i].equals("by") || strArray[i].equals("multipled")){
-		if((strArray[i].equals("multiplied") || strArray[i].equals("times")) && strArray[i+1].equals("by"))
-			i++;
-		Token tok = new Token(MULT, 0);
+            if (strArray[i].equals("times")|| strArray[i].equals("*") || strArray[i].equals("x") || strArray[i].equals("product") || strArray[i].equals("into") || strArray[i].equals("by") || strArray[i].equals("multiplied")){
+		        if((strArray[i].equals("multiplied") || strArray[i].equals("times")) && strArray[i+1].equals("by")){
+                    i++;
+               }
+		        Token tok = new Token(MULT, 0);
                 tokens.add(tok);
                 continue;
             }
-            if (strArray[i].equals("divide")|| strArray[i].equals("/") || strArray[i].equals("over") || strArray[i].equals("divided" )){
-		if(strArray[i+1].equals("by"))
-			i++;
-		Token tok = new Token(DIV, 0);
+            if (strArray[i].equals("divide")|| strArray[i].equals("/") || strArray[i].equals("over") || strArray[i].equals("divided" )) {
+                if (strArray[i + 1].equals("by")){
+                    i++;
+                }
+		        Token tok = new Token(DIV, 0);
                 tokens.add(tok);
                 continue;
             }
@@ -59,7 +83,7 @@ public class Lexer implements TokenType {
                 tokens.add(tok);
                 continue;
             }
-            if (strArray[i].equals("log") || strArray[i].equals("logrithm") ){
+            if (strArray[i].equals("log") || strArray[i].equals("logarithm") ){
                 Token tok = new Token(LOG, 0);
                 tokens.add(tok);
                 continue;
@@ -93,10 +117,10 @@ public class Lexer implements TokenType {
                 continue;
             }
             if ( strArray[i].equals("root" )){
-                    Token tok = new Token(ROOT, 0);
-                    tokens.add(tok);
-                    System.out.println("initial root i = "+ i);
-                    continue;
+                Token tok = new Token(ROOT, 0);
+                tokens.add(tok);
+                System.out.println("initial root i = "+ i);
+                continue;
             }
             //Numbers
             if (Pattern.matches("[+-]?[0-9]*.[0-9]+", strArray[i])){
