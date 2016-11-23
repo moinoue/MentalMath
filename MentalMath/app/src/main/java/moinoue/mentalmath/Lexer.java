@@ -27,7 +27,7 @@ public class Lexer implements TokenType {
         for (int i = 0; i<strArray.length; i++){
 
             if (strArray[i].equals("(")) {
-                Token tok = new Token(RPAR, 0);
+                Token tok = new Token(LPAR, 0);
                 tokens.add(tok);
                 continue;
             }
@@ -37,7 +37,7 @@ public class Lexer implements TokenType {
                 continue;
             }
             if (strArray[i].equals(")")) {
-                Token tok = new Token(LPAR, 0);
+                Token tok = new Token(RPAR, 0);
                 tokens.add(tok);
                 continue;
             }
