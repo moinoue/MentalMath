@@ -2,6 +2,7 @@ package moinoue.mentalmath;
 
 /**
  * Created by Mohammed on 11/23/2016.
+ * Binary Operators
  */
 
 public class BinOp extends AST implements TokenType {
@@ -35,7 +36,7 @@ public class BinOp extends AST implements TokenType {
             return (float)(Math.pow((double)left.evaluate(),(double)right.evaluate()));
         }
         if (op.getType() == ROOT){
-            //TODO: implement root here
+            return (float)(Math.pow(Math.abs((double)right.evaluate()),(1/(double)left.evaluate())));
         }
         //Should not reach this code bring up error if you do
         return 0;

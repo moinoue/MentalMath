@@ -152,12 +152,14 @@ public class Lexer implements TokenType {
 
     }
 
+    //Used for debugging
     private void check(){
         for (Token t: tokens){
             t.check();
         }
     }
 
+    //Pulls the current token and moves the position marker by one
     public Token getNextToken(){
         Token tok = tokens.get(position);
         position++;

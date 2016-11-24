@@ -19,6 +19,7 @@ public class Token {
     public int getType(){
         return this.type;
     }
+    //Used for debugging purpose
     public void check(){
         System.out.println("type = "+ type + " value = "+value);
     }
