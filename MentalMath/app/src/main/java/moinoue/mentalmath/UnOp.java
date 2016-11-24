@@ -31,6 +31,7 @@ public class UnOp  extends AST implements TokenType{
             }
             return check;
         }
+        //TODO: add in evaluation for LOG, EXP, SQRT, and CBRT
         return 0;
     }
 }

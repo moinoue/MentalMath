@@ -28,7 +28,7 @@ public class BinOp extends AST implements TokenType {
         if(op.getType() == DIV){
             return left.evaluate() / right.evaluate();
         }
-
+        //TODO: add evaluation for MOD,POW, and ROOT
         //Should not reach this code
         return 0;
     }

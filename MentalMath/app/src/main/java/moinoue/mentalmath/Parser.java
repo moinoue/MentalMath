@@ -24,6 +24,22 @@ public class Parser implements TokenType {
 
     private AST factor(){
         Token token = currentToken;
+        if (token.getType() == LOG){
+            eat(LOG);
+            return new UnOp(token,factor());
+        }
+        if (token.getType() == SQRT){
+            eat(SQRT);
+            return new UnOp(token,factor());
+        }
+        if (token.getType() == CBRT){
+            eat(CBRT);
+            return new UnOp(token,factor());
+        }
+        if (token.getType() == EXP){
+            eat(EXP);
+            return new UnOp(token,factor());
+        }
         if (token.getType() == NEG){
             eat(NEG);
             return new UnOp(token,factor());
@@ -48,13 +64,22 @@ public class Parser implements TokenType {
     private AST term(){
         AST result = factor();
 
-        while ((currentToken.getType() == MULT) || (currentToken.getType() == DIV)) {
+        while ((currentToken.getType() == MULT) || (currentToken.getType() == DIV) || (currentToken.getType() == MOD) || (currentToken.getType() == POW) || (currentToken.getType() == ROOT)) {
             Token token = currentToken;
             if (token.getType() == MULT) {
                 eat(MULT);
             }
             if (token.getType() == DIV) {
                 eat(DIV);
+            }
+            if (token.getType() == MOD) {
+                eat(MOD);
+            }
+            if (token.getType() == POW) {
+                eat(POW);
+            }
+            if (token.getType() == ROOT) {
+                eat(ROOT);
             }
             result = new BinOp(result, token, factor());
         }

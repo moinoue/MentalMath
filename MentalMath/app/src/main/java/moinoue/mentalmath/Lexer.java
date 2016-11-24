@@ -8,9 +8,9 @@ import java.util.regex.Pattern;
  */
 
 public class Lexer implements TokenType {
-    ArrayList<Token> tokens;
-    String input;
-    int position;
+    private ArrayList<Token> tokens;
+    private String input;
+    private int position;
 
     public Lexer(String input){
         this.input = input+= " EOL" ;
