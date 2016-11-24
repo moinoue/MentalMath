@@ -16,6 +16,8 @@ public interface TokenType{
     int ROOT    = 11; //root
     int RPAR    = 12; //Right Parenthesis
     int LPAR    = 13; //Left Parenthesis
+    int NEG     = 14; //Negative unary
+    int POS     = 15; //Positive unary
 
     int EOL     = 100; //end of line
 

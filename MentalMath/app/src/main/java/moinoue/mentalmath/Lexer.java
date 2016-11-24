@@ -100,28 +100,34 @@ public class Lexer implements TokenType {
             }
 
             if ( strArray[i].equals("square" )&& strArray[i+1].equals( "root") ){
-                    Token tok = new Token(SQRT, 0);
-                    tokens.add(tok);
-                    System.out.println("initial i = "+ i);
-                    i++;
-                    System.out.println("final i = "+ i);
-                    continue;
-
+                Token tok = new Token(SQRT, 0);
+                tokens.add(tok);
+                i++;
+                continue;
             }
             if ( strArray[i].equals("cube") && strArray[i+1].equals( "root") ){
                 Token tok = new Token(CBRT, 0);
                 tokens.add(tok);
-                System.out.println("initial i = "+ i);
                 i++;
-                System.out.println("final i = "+ i);
                 continue;
             }
             if ( strArray[i].equals("root" )){
                 Token tok = new Token(ROOT, 0);
                 tokens.add(tok);
-                System.out.println("initial root i = "+ i);
                 continue;
             }
+
+            if ( strArray[i].equals("negative")){
+                Token tok = new Token(NEG, 0);
+                tokens.add(tok);
+                continue;
+            }
+            if ( strArray[i].equals("positive")){
+                Token tok = new Token(POS, 0);
+                tokens.add(tok);
+                continue;
+            }
+
             //Numbers
             if (Pattern.matches("[+-]?[0-9]*.[0-9]+", strArray[i])){
                 Token tok = new Token(NUMBERS, Float.parseFloat(strArray[i]));

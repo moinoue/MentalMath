@@ -5,5 +5,7 @@ package moinoue.mentalmath;
  * AST is just an empty parent class for the purpose of building the AST
  */
 
-public class AST {
+public abstract class AST {
+
+    public float evaluate(){return 0;}
 }

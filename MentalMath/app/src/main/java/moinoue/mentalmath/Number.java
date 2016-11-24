@@ -12,4 +12,8 @@ public class Number extends AST {
         this.token = token;
         this.value = token.getValue();
     }
+
+    public float evaluate(){
+        return value;
+    }
 }

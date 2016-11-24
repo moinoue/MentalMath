@@ -24,6 +24,14 @@ public class Parser implements TokenType {
 
     private AST factor(){
         Token token = currentToken;
+        if (token.getType() == NEG){
+            eat(NEG);
+            return new UnOp(token,factor());
+        }
+        if (token.getType() == POS){
+            eat(POS);
+            return new UnOp(token,factor());
+        }
         if (token.getType() == NUMBERS){
             eat(NUMBERS);
             return new Number(token);
@@ -69,7 +77,7 @@ public class Parser implements TokenType {
         return result;
     }
 
-    private AST Parsing(){
+    public AST Parsing(){
         return expr();
     }
 }
