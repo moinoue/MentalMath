@@ -146,10 +146,15 @@ public class Lexer implements TokenType {
                 tokens.add(tok);
                 break;
             }
-
         }
+    }
 
-
+    public String output(){
+        String output = "";
+        for (int i = 0; i<tokens.size(); i++) {
+            output += tokens.get(i).output() + " ";
+        }
+        return output;
     }
 
     //Used for debugging

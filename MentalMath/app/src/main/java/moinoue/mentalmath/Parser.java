@@ -13,7 +13,6 @@ public class Parser implements TokenType {
     {
         this.lexer = lexer;
         currentToken = lexer.getNextToken();
-        print();
     }
 
     private void eat(Integer tokenType){
@@ -58,6 +57,7 @@ public class Parser implements TokenType {
             eat(RPAR);
             return result;
         }
+        //If we reach here, it means a problem happened with syntax, expected either a number, parenthesis, or an unary
         return null;
     }
 
@@ -102,12 +102,7 @@ public class Parser implements TokenType {
         return result;
     }
 
-    //This function exist for testing purposes
-    public void print(){
-        System.out.println(expr().evaluate());
-    }
-
-    public AST Parsing(){
-        return expr();
+    public String print(){
+        return Float.toString(expr().evaluate());
     }
 }

@@ -42,6 +42,8 @@ public class UnOp  extends AST implements TokenType{
         if (op.getType() == CBRT){
             return (float)Math.cbrt((double)right.evaluate());
         }
+
+        //Return an error if the code reaches here
         return 0;
     }
 }
