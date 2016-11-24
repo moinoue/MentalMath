@@ -13,7 +13,7 @@ public class Parser implements TokenType {
     {
         this.lexer = lexer;
         currentToken = lexer.getNextToken();
-        Parsing();
+        print();
     }
 
     private void eat(Integer tokenType){
@@ -100,6 +100,11 @@ public class Parser implements TokenType {
             result = new BinOp(result, token, term());
         }
         return result;
+    }
+
+    //This function exist for testing purposes
+    public void print(){
+        System.out.println(expr().evaluate());
     }
 
     public AST Parsing(){

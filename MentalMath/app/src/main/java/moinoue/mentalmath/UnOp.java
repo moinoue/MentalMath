@@ -15,23 +15,33 @@ public class UnOp  extends AST implements TokenType{
     }
 
     public float evaluate(){
+        float value = right.evaluate();
         if (op.getType() == POS){
-            float check = right.evaluate();
-            if (check <=0){
-                check = check * -1;
-                return check;
+            if (value <=0){
+                value = value * -1;
+                return value;
             }
-            return check;
+            return value;
         }
         if (op.getType() == NEG){
-            float check = right.evaluate();
-            if (check >=0){
-                check = check * -1;
-                return check;
+            if (value >=0){
+                value = value * -1;
+                return value;
             }
-            return check;
+            return value;
         }
-        //TODO: add in evaluation for LOG, EXP, SQRT, and CBRT
+        if (op.getType() == LOG){
+            return (float)Math.log((double)right.evaluate());
+        }
+        if (op.getType() == EXP){
+            //TODO: implement exponential here
+        }
+        if (op.getType() == SQRT){
+            //TODO: implement square root here
+        }
+        if (op.getType() == CBRT){
+            //TODO: implement cube root here
+        }
         return 0;
     }
 }

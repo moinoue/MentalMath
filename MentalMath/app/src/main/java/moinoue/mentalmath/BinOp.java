@@ -28,8 +28,16 @@ public class BinOp extends AST implements TokenType {
         if(op.getType() == DIV){
             return left.evaluate() / right.evaluate();
         }
-        //TODO: add evaluation for MOD,POW, and ROOT
-        //Should not reach this code
+        if (op.getType() == MOD){
+            return left.evaluate() % right.evaluate();
+        }
+        if (op.getType() == POW){
+            return (float)(Math.pow((double)left.evaluate(),(double)right.evaluate()));
+        }
+        if (op.getType() == ROOT){
+            //TODO: implement root here
+        }
+        //Should not reach this code bring up error if you do
         return 0;
     }
 }
