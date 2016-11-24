@@ -34,13 +34,13 @@ public class UnOp  extends AST implements TokenType{
             return (float)Math.log((double)right.evaluate());
         }
         if (op.getType() == EXP){
-            //TODO: implement exponential here
+            return (float)Math.exp((double)right.evaluate());
         }
         if (op.getType() == SQRT){
-            //TODO: implement square root here
+            return (float)Math.sqrt((double)right.evaluate());
         }
         if (op.getType() == CBRT){
-            //TODO: implement cube root here
+            return (float)Math.cbrt((double)right.evaluate());
         }
         return 0;
     }
