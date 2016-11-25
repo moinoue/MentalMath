@@ -31,7 +31,7 @@ public class BinOp extends AST implements TokenType {
             if (rval == 0){
                 return 0;
             }
-            return left.evaluate() / right.evaluate();
+            return left.evaluate() / rval;
         }
         if (op.getType() == MOD){
             return left.evaluate() % right.evaluate();
