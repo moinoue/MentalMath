@@ -6,23 +6,28 @@ package moinoue.mentalmath;
  */
 
 public class Parser implements TokenType {
-    Lexer lexer;
-    Token currentToken;
+    private Lexer lexer;
+    private Token currentToken;
+    private ErrorHandling errorHandling;
 
-    public Parser(Lexer lexer)
+    public Parser(Lexer lexer, ErrorHandling errorHandling)
     {
         this.lexer = lexer;
+        this.errorHandling = errorHandling;
         currentToken = lexer.getNextToken();
     }
 
     private void eat(Integer tokenType){
-        if (currentToken.getType() == tokenType){
-            currentToken = lexer.getNextToken();
-        }
+            if (currentToken.getType() == tokenType) {
+                currentToken = lexer.getNextToken();
+            }else {
+                errorHandling.errorAdd("Unexpected token at position: " + lexer.getPosition());
+            }
     }
 
     private AST factor(){
         Token token = currentToken;
+
         if (token.getType() == LOG){
             eat(LOG);
             return new UnOp(token,factor());
@@ -57,14 +62,14 @@ public class Parser implements TokenType {
             eat(RPAR);
             return result;
         }
-        //If we reach here, it means a problem happened with syntax, expected either a number, parenthesis, or an unary
-        return null;
+        errorHandling.errorAdd("Unexpected token at position: " + lexer.getPosition());
+        return new Number(new Token(0,0));
     }
 
     private AST term(){
         AST result = factor();
 
-        while ((currentToken.getType() == MULT) || (currentToken.getType() == DIV) || (currentToken.getType() == MOD) || (currentToken.getType() == POW) || (currentToken.getType() == ROOT)) {
+        if  ((currentToken.getType() == MULT) || (currentToken.getType() == DIV) || (currentToken.getType() == MOD) || (currentToken.getType() == POW) || (currentToken.getType() == ROOT)) {
             Token token = currentToken;
             if (token.getType() == MULT) {
                 eat(MULT);
@@ -81,7 +86,7 @@ public class Parser implements TokenType {
             if (token.getType() == ROOT) {
                 eat(ROOT);
             }
-            result = new BinOp(result, token, factor());
+            result = new BinOp(result, token, term());
         }
         return result;
     }

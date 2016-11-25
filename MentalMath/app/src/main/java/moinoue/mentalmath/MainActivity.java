@@ -32,6 +32,7 @@ public class MainActivity extends Activity {
     private TextView heardText;
     private Lexer lexer;
     private Parser parser;
+    private ErrorHandling errorHandling;
     private TextToSpeech textToSpeech;
 
     private final int REQUIRED_SPEECH_CODE = 100;
@@ -98,12 +99,18 @@ public class MainActivity extends Activity {
                 ArrayList<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                 heardText.setText(result.get(0));
                 lexer = new Lexer(heardText.getText().toString());
-                parser = new Parser(lexer);
+                errorHandling = new ErrorHandling();
+                parser = new Parser(lexer,errorHandling);
 
-                //Add in error checking here
-                //if no error then...
-                answerText.setText(parser.print());
                 inputText.setText(lexer.output());
+                answerText.setText(parser.print());
+
+
+                if (errorHandling.hasError()){
+                    answerText.setText(errorHandling.getErrors());
+                    System.out.println("Error found");
+                    return;
+                }
 
                 activateSpeech(answerText.getText().toString());
             }
@@ -113,11 +120,16 @@ public class MainActivity extends Activity {
     private void solveClick(){
         heardText.setText("");
         lexer = new Lexer(inputText.getText().toString());
-        parser = new Parser(lexer);
+        errorHandling = new ErrorHandling();
+        parser = new Parser(lexer,errorHandling);
 
-        //Add in error checking here
-        //if no error then...
         answerText.setText(parser.print());
+
+        if (errorHandling.hasError()){
+            answerText.setText(errorHandling.getErrors());
+            return;
+        }
+
 
         activateSpeech(answerText.getText().toString());
     }

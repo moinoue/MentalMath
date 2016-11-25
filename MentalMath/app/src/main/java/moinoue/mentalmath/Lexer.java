@@ -31,7 +31,7 @@ public class Lexer implements TokenType {
                 tokens.add(tok);
                 continue;
             }
-            if (strArray[i].equals("right") && strArray[i+1].equals("parenthesis")) {
+            if (strArray[i].equals("right") && (strArray[i+1].equals("parenthesis") || strArray[i+1].equals("parentheses") || strArray[i+1].equals("parent")|| strArray[i+1].equals("paren"))) {
                 Token tok = new Token(RPAR, 0);
                 tokens.add(tok);
                 continue;
@@ -41,7 +41,7 @@ public class Lexer implements TokenType {
                 tokens.add(tok);
                 continue;
             }
-            if (strArray[i].equals("left") && strArray[i+1].equals("parenthesis")) {
+            if (strArray[i].equals("left") && (strArray[i+1].equals("parenthesis")|| strArray[i+1].equals("parentheses") || strArray[i+1].equals("parent")|| strArray[i+1].equals("paren"))) {
                 Token tok = new Token(LPAR, 0);
                 tokens.add(tok);
                 continue;
@@ -162,6 +162,10 @@ public class Lexer implements TokenType {
         for (Token t: tokens){
             t.check();
         }
+    }
+
+    public int getPosition(){
+        return position -1;
     }
 
     //Pulls the current token and moves the position marker by one
