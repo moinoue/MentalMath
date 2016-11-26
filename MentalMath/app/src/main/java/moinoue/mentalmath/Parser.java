@@ -52,6 +52,30 @@ public class Parser implements TokenType {
             eat(POS);
             return new UnOp(token,factor());
         }
+        if (token.getType() == SIN){
+            eat(SIN);
+            return new UnOp(token,factor());
+        }
+        if (token.getType() == COS){
+            eat(COS);
+            return new UnOp(token,factor());
+        }
+        if (token.getType() == TAN){
+            eat(TAN);
+            return new UnOp(token,factor());
+        }
+        if (token.getType() == ASIN){
+            eat(ASIN);
+            return new UnOp(token,factor());
+        }
+        if (token.getType() == ACOS){
+            eat(ACOS);
+            return new UnOp(token,factor());
+        }
+        if (token.getType() == ATAN){
+            eat(ATAN);
+            return new UnOp(token,factor());
+        }
         if (token.getType() == NUMBERS){
             eat(NUMBERS);
             return new Number(token);

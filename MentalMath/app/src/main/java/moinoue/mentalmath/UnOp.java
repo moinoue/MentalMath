@@ -42,7 +42,24 @@ public class UnOp  extends AST implements TokenType{
         if (op.getType() == CBRT){
             return (float)Math.cbrt((double)right.evaluate());
         }
-
+        if (op.getType() == SIN){
+            return (float)Math.sin((double)right.evaluate());
+        }
+        if (op.getType() == COS){
+            return (float)Math.cos((double)right.evaluate());
+        }
+        if (op.getType() == TAN){
+            return (float)Math.tan((double)right.evaluate());
+        }
+        if (op.getType() == ASIN){
+            return (float)Math.asin((double)right.evaluate());
+        }
+        if (op.getType() == ACOS){
+            return (float)Math.acos((double)right.evaluate());
+        }
+        if (op.getType() == ATAN){
+            return (float)Math.atan((double)right.evaluate());
+        }
         //Return an error if the code reaches here
         return 0;
     }

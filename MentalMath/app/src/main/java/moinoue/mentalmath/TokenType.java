@@ -18,6 +18,12 @@ public interface TokenType{
     int LPAR    = 13; //Left Parenthesis
     int NEG     = 14; //Negative unary
     int POS     = 15; //Positive unary
+    int SIN     = 16; //Sine
+    int COS     = 17; //Cosine
+    int TAN     = 18; //Tangent
+    int ASIN     = 16; //Arc Sine
+    int ACOS     = 17; //Arc Cosine
+    int ATAN     = 18; //Arc Tangent
 
     int EOL     = 100; //end of line
 

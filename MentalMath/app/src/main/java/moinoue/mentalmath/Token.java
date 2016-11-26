@@ -64,6 +64,24 @@ public class Token implements TokenType {
         if (type == POS){
             return "+";
         }
+        if (type == SIN){
+            return "sin";
+        }
+        if (type == COS){
+            return "cos";
+        }
+        if (type == TAN){
+            return "tan";
+        }
+        if (type == ASIN){
+            return "arc sin";
+        }
+        if (type == ACOS){
+            return "arc cos";
+        }
+        if (type == ATAN){
+            return "arc tan";
+        }
         return "";
     }
 
