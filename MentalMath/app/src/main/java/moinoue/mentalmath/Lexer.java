@@ -13,9 +13,10 @@ public class Lexer implements TokenType {
     private int position;
 
     public Lexer(String input){
-        this.input = input+= " EOL" ;
+        this.input = input.toLowerCase() + " EOL" ;
         this.position = 0;
         this.tokens = new ArrayList<Token>();
+
         constructToken();
         check();
     }
@@ -124,7 +125,7 @@ public class Lexer implements TokenType {
                 continue;
             }
 
-            if ( strArray[i+1].equals( "sine") || strArray[i+1].equals("sign")){
+            if ( strArray[i].equals( "sine") || strArray[i].equals("sign")){
                 Token tok = new Token(SIN, 0);
                 tokens.add(tok);
                 continue;
@@ -137,7 +138,7 @@ public class Lexer implements TokenType {
                 continue;
             }
 
-            if ( strArray[i+1].equals( "cosine") || strArray[i+1].equals("cosign")){
+            if ( strArray[i].equals( "cosine") || strArray[i].equals("cosign")){
                 Token tok = new Token(COS, 0);
                 tokens.add(tok);
                 continue;
@@ -150,7 +151,7 @@ public class Lexer implements TokenType {
                 continue;
             }
 
-            if ( strArray[i+1].equals( "tan") || strArray[i+1].equals("tangent")){
+            if ( strArray[i].equals( "tan") || strArray[i].equals("tangent")){
                 Token tok = new Token(TAN, 0);
                 tokens.add(tok);
                 continue;
