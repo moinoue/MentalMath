@@ -125,7 +125,13 @@ public class Lexer implements TokenType {
                 continue;
             }
 
-            if ( strArray[i].equals( "sine") || strArray[i].equals("sign")){
+            if ( strArray[i].equals( "arcsine") || strArray[i].equals("arcsign")|| strArray[i].equals("arcsin")){
+                Token tok = new Token(ASIN, 0);
+                tokens.add(tok);
+                continue;
+            }
+
+            if ( strArray[i].equals( "sine") || strArray[i].equals("sign") || strArray[i].equals("sin")){
                 Token tok = new Token(SIN, 0);
                 tokens.add(tok);
                 continue;
@@ -138,7 +144,13 @@ public class Lexer implements TokenType {
                 continue;
             }
 
-            if ( strArray[i].equals( "cosine") || strArray[i].equals("cosign")){
+            if ( strArray[i].equals( "arccosine") || strArray[i].equals("arccosign") || strArray[i].equals("arccosin")){
+                Token tok = new Token(ACOS, 0);
+                tokens.add(tok);
+                continue;
+            }
+
+            if ( strArray[i].equals( "cosine") || strArray[i].equals("cosign")|| strArray[i].equals("arccosin")){
                 Token tok = new Token(COS, 0);
                 tokens.add(tok);
                 continue;
@@ -148,6 +160,12 @@ public class Lexer implements TokenType {
                 Token tok = new Token(ATAN, 0);
                 tokens.add(tok);
                 i++;
+                continue;
+            }
+
+            if ( strArray[i].equals( "arctan") || strArray[i].equals("arctangent")){
+                Token tok = new Token(ATAN, 0);
+                tokens.add(tok);
                 continue;
             }
 
@@ -170,13 +188,7 @@ public class Lexer implements TokenType {
             }
 
             //Numbers
-            if (Pattern.matches("[+-]?[0-9]*.[0-9]+", strArray[i])){
-                Token tok = new Token(NUMBERS, Float.parseFloat(strArray[i]));
-                tokens.add(tok);
-                continue;
-            }
-
-            if (Pattern.matches("[+-]?[0-9]+", strArray[i])){
+            if (Pattern.matches("[-+]?[0-9]*\\.?[0-9]+", strArray[i])){
                 Token tok = new Token(NUMBERS, Float.parseFloat(strArray[i]));
                 tokens.add(tok);
                 continue;
