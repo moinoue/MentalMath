@@ -93,7 +93,7 @@ public class Lexer implements TokenType {
                 tokens.add(tok);
                 continue;
             }
-            if (strArray[i].equals("power") || strArray[i].equals("pow") ){
+            if (strArray[i].equals("power") || strArray[i].equals("pow") || strArray[i].equals("^")){
                 Token tok = new Token(POW, 0);
                 tokens.add(tok);
                 continue;
