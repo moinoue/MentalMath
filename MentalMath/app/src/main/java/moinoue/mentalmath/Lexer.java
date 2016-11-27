@@ -71,7 +71,7 @@ public class Lexer implements TokenType {
                 tokens.add(tok);
                 continue;
             }
-            if (strArray[i].equals("divide")|| strArray[i].equals("/") || strArray[i].equals("over") || strArray[i].equals("divided" )) {
+            if (strArray[i].equals("divide")|| strArray[i].equals("/") || strArray[i].equals("over") || strArray[i].equals("divided" ) || strArray[i].equals("÷")) {
                 if (strArray[i + 1].equals("by")){
                     i++;
                 }
