@@ -32,7 +32,7 @@ public class Lexer implements TokenType {
                 tokens.add(tok);
                 continue;
             }
-            if (strArray[i].equals("right") && (strArray[i+1].equals("parenthesis") || strArray[i+1].equals("parentheses") || strArray[i+1].equals("parent")|| strArray[i+1].equals("paren"))) {
+            if ((strArray[i].equals("right") || strArray[i].equals("closed") || strArray[i].equals("close")) && (strArray[i+1].equals("parenthesis") || strArray[i+1].equals("parentheses") || strArray[i+1].equals("parent")|| strArray[i+1].equals("paren")|| strArray[i+1].equals("brace")|| strArray[i+1].equals("bracket"))) {
                 Token tok = new Token(RPAR, 0);
                 tokens.add(tok);
                 continue;
@@ -42,7 +42,7 @@ public class Lexer implements TokenType {
                 tokens.add(tok);
                 continue;
             }
-            if (strArray[i].equals("left") && (strArray[i+1].equals("parenthesis")|| strArray[i+1].equals("parentheses") || strArray[i+1].equals("parent")|| strArray[i+1].equals("paren"))) {
+            if ((strArray[i].equals("left") || strArray[i].equals("opened") || strArray[i].equals("open")) && (strArray[i+1].equals("parenthesis")|| strArray[i+1].equals("parentheses") || strArray[i+1].equals("parent")|| strArray[i+1].equals("paren")|| strArray[i+1].equals("paren")|| strArray[i+1].equals("brace")|| strArray[i+1].equals("bracket"))) {
                 Token tok = new Token(LPAR, 0);
                 tokens.add(tok);
                 continue;
