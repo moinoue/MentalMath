@@ -195,7 +195,7 @@ public class Lexer implements TokenType {
             }
 
             //Special cases
-            if (strArray[i].equals("to") || strArray[i].equals("too")){
+            if  (strArray[i].equals("too")){
                 Token tok = new Token(NUMBERS, 2);
                 tokens.add(tok);
                 continue;
