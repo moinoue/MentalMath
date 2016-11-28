@@ -1,5 +1,7 @@
 package moinoue.mentalmath;
-
+/**
+ * Copyright (c) 2016 Vidhya, Mohammed
+ */
 import org.junit.Test;
 
 import static org.junit.Assert.*;

@@ -1,10 +1,10 @@
-package moinoue.mentalmath;
+﻿package moinoue.mentalmath;
 
 import java.util.ArrayList;
 import java.util.regex.Pattern;
 
 /**
- * Created by VidhyaLakshmi on 11/20/2016.
+ * Copyright (c) 2016 Vidhya, Mohammed
  */
 
 public class Lexer implements TokenType {

@@ -1,3 +1,6 @@
+<!--
+  Copyright (c) 2016 Vidhya, Mohammed
+ -->
 <resources>
     <string name="app_name">MentalMath</string>
     <string name="input_text">Type in a math problem here</string>
