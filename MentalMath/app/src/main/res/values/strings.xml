@@ -1,6 +1,9 @@
 <resources>
     <string name="app_name">MentalMath</string>
     <string name="input_text">Type in a math problem here</string>
+    <string name="syntax_text">What the system heard</string>
     <string name="answer_text">Answer is displayed here</string>
     <string name="button_text">Solve</string>
+    <string name="mic_button">Speak</string>
+    <string name="not_supported">Sorry, not supported!</string>
 </resources>

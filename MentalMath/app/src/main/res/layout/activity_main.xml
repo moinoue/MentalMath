@@ -10,14 +10,37 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="moinoue.mentalmath.MainActivity">
 
+    <Button
+        android:text="@string/button_text"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/answerButton"
+        android:layout_marginBottom="41dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_marginRight="53dp"
+        android:layout_marginEnd="53dp" />
+
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/answer_text"
         android:id="@+id/answerText"
-        android:layout_marginTop="53dp"
-        android:layout_below="@+id/inputTextbox"
+        android:layout_marginBottom="105dp"
+        android:layout_above="@+id/answerButton"
         android:layout_centerHorizontal="true" />
+
+    <Button
+        android:text="@string/mic_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/answerButton"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_marginLeft="44dp"
+        android:layout_marginStart="44dp"
+        android:id="@+id/micButton" />
 
     <EditText
         android:layout_width="720dp"
@@ -25,18 +48,20 @@
         android:text="@string/input_text"
         android:ems="10"
         android:id="@+id/inputTextbox"
-        android:layout_marginTop="83dp"
-        android:layout_alignParentTop="false"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1"
         android:textSize="14sp"
-        android:layout_height="36dp" />
+        android:layout_height="36dp"
+        android:layout_marginBottom="64dp"
+        android:layout_above="@+id/answerText"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
 
-    <Button
-        android:text="@string/button_text"
+    <TextView
+        android:text="@string/syntax_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/answerText"
+        android:layout_above="@+id/inputTextbox"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="111dp"
-        android:id="@+id/answerButton" />
+        android:layout_marginBottom="58dp"
+        android:id="@+id/heardText" />
 </RelativeLayout>
