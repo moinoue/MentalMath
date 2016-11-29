@@ -76,6 +76,7 @@ public class MainActivity extends Activity {
             public void onInit(int status){
                 if(status == TextToSpeech.SUCCESS){
                     textToSpeech.setLanguage(Locale.US);
+                    activateSpeech("Welcome to Mental Math. Speak or type a simple math problem.");
                 }
             }
         });
