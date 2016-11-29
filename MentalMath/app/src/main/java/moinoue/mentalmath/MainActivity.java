@@ -116,7 +116,9 @@ public class MainActivity extends Activity {
                     System.out.println("Error found");
                     return;
                 }
-
+                if (answerText.getText().toString().equals("NaN")){
+                    answerText.setText("Not a Number");
+                }
                 activateSpeech(answerText.getText().toString());
             }
         }
@@ -135,7 +137,9 @@ public class MainActivity extends Activity {
             return;
         }
 
-
+        if (answerText.getText().toString().equals("NaN")){
+            answerText.setText("Not a Number");
+        }
         activateSpeech(answerText.getText().toString());
     }
 
