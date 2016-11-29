@@ -71,7 +71,7 @@ public class MainActivity extends Activity {
         ListView list = (ListView)findViewById(R.id.opList);
         list.setVisibility(View.GONE);
         opClose.setVisibility(View.GONE);
-        
+
         solveButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {

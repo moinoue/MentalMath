@@ -71,7 +71,7 @@ public class Lexer implements TokenType {
                 tokens.add(tok);
                 continue;
             }
-            if (strArray[i].equals("divide")|| strArray[i].equals("/") || strArray[i].equals("over") || strArray[i].equals("divided" ) || strArray[i].equals("÷")) {
+            if (strArray[i].equals("divide")|| strArray[i].equals("/") || strArray[i].equals("over") || strArray[i].equals("divided" ) || strArray[i].equals("ï¿½")) {
                 if (strArray[i + 1].equals("by")){
                     i++;
                 }
@@ -137,14 +137,14 @@ public class Lexer implements TokenType {
                 continue;
             }
 
-            if ((strArray[i].equals("ark") || strArray[i].equals("arc") )&& (strArray[i+1].equals( "cosine") || strArray[i+1].equals("cosign") || strArray[i+1].equals("cos"))){
+            if ((strArray[i].equals("ark") || strArray[i].equals("arc") )&& (strArray[i+1].equals( "cosine") || strArray[i+1].equals("cosign") || strArray[i+1].equals("cos")|| strArray[i+1].equals("cost") )){
                 Token tok = new Token(ACOS, 0);
                 tokens.add(tok);
                 i++;
                 continue;
             }
 
-            if ( strArray[i].equals( "arccosine") || strArray[i].equals("arccosign") || strArray[i].equals("arccosin")){
+            if ( strArray[i].equals( "arccosine") || strArray[i].equals("arccosign") || strArray[i].equals("arccosin") || strArray[i].equals("arccos") || strArray[i].equals("arccost")){
                 Token tok = new Token(ACOS, 0);
                 tokens.add(tok);
                 continue;
