@@ -12,12 +12,14 @@ import android.speech.tts.TextToSpeech;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.speech.RecognizerIntent;
 import android.widget.Toast;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.Locale;
 
 /*
@@ -48,7 +50,7 @@ public class MainActivity extends Activity {
 
         Button   micButton;
         Button   solveButton;
-
+        Button opButton;
 
         //Hook on to widgets to modify later during runtime
         inputText  = (EditText)findViewById(R.id.inputTextbox);
@@ -56,21 +58,44 @@ public class MainActivity extends Activity {
         answerText  = (TextView)findViewById(R.id.answerText);
         micButton     = (Button)findViewById(R.id.micButton);
         solveButton     = (Button)findViewById(R.id.answerButton);
-
+        opButton = (Button)findViewById(R.id.opButton);
+        Button opClose = (Button)findViewById(R.id.opClose);
         micButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 promptSpeechInput();
             }
         });
+        Button helpButton = (Button)findViewById(R.id.helpButton);
 
+        ListView list = (ListView)findViewById(R.id.opList);
+        list.setVisibility(View.GONE);
+        opClose.setVisibility(View.GONE);
+        
         solveButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 solveClick();
             }
         });
-
+        opButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                opClick();
+            }
+        });
+        opClose.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                closeOp();
+            }
+        });
+        helpButton.setOnClickListener(new View.OnClickListener(){
+            @Override
+            public void onClick(View view) {
+                helpSpeech();
+            }
+        });
         textToSpeech = new TextToSpeech(MainActivity.this, new TextToSpeech.OnInitListener(){
             @Override
             public void onInit(int status){
@@ -82,6 +107,29 @@ public class MainActivity extends Activity {
         });
 
     }
+
+    private void opClick(){
+        ListView list = (ListView)findViewById(R.id.opList);
+        list.setVisibility(View.VISIBLE);
+        Button opClose = (Button) findViewById(R.id.opClose);
+        opClose.setVisibility(View.VISIBLE);
+        Button opButton = (Button)findViewById(R.id.opButton);
+        opButton.setVisibility(View.GONE);
+
+    }
+    private void closeOp(){
+        ListView list = (ListView)findViewById(R.id.opList);
+        list.setVisibility(View.GONE);
+        Button opClose = (Button) findViewById(R.id.opClose);
+        opClose.setVisibility(View.GONE);
+        Button opButton = (Button)findViewById(R.id.opButton);
+        opButton.setVisibility(View.VISIBLE);
+    }
+
+    private void helpSpeech(){
+        activateSpeech("You can either speak a math problem, for example, log of 2 plus square root of 3 minus 26, or type in a math expression using the operators provided.");
+    }
+
     private void promptSpeechInput(){
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
