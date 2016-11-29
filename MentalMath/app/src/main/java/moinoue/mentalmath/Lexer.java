@@ -1,4 +1,4 @@
-﻿package moinoue.mentalmath;
+package moinoue.mentalmath;
 
 import java.util.ArrayList;
 import java.util.regex.Pattern;
@@ -71,7 +71,7 @@ public class Lexer implements TokenType {
                 tokens.add(tok);
                 continue;
             }
-            if (strArray[i].equals("divide")|| strArray[i].equals("/") || strArray[i].equals("over") || strArray[i].equals("divided" ) || strArray[i].equals("÷")) {
+            if (strArray[i].equals("divide")|| strArray[i].equals("/") || strArray[i].equals("over") || strArray[i].equals("divided" ) || strArray[i].equals("�")) {
                 if (strArray[i + 1].equals("by")){
                     i++;
                 }
@@ -195,8 +195,44 @@ public class Lexer implements TokenType {
             }
 
             //Special cases
-            if  (strArray[i].equals("too")){
+            if  (strArray[i].equals("too") || strArray[i].equals("two")){
                 Token tok = new Token(NUMBERS, 2);
+                tokens.add(tok);
+                continue;
+            }
+
+            if  (strArray[i].equals("won") || strArray[i].equals("one")){
+                Token tok = new Token(NUMBERS, 1);
+                tokens.add(tok);
+                continue;
+            }
+
+            //This will catch no spaces between operators edge case
+            if (Pattern.matches("[0-9]*\\.?[0-9]+[+-/*][0-9]*\\.?[0-9]+", strArray[i])){
+                String [] tempResult = strArray[i].split("(?<=[+-/*])|(?=[+-/*])");
+                System.out.println(tempResult[0]);
+
+                Token tok = new Token(NUMBERS, Float.parseFloat(tempResult[0]));
+                tokens.add(tok);
+                switch(tempResult[1]){
+                    case("+"):
+                        tok = new Token(PLUS,0);
+                        tokens.add(tok);
+                        break;
+                    case("-"):
+                        tok = new Token(MINUS,0);
+                        tokens.add(tok);
+                        break;
+                    case("/"):
+                        tok = new Token(DIV,0);
+                        tokens.add(tok);
+                        break;
+                    case("*"):
+                        tok = new Token(MULT,0);
+                        tokens.add(tok);
+                        break;
+                }
+                tok = new Token(NUMBERS, Float.parseFloat(tempResult[2]));
                 tokens.add(tok);
                 continue;
             }
