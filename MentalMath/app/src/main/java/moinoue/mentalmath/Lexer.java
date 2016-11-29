@@ -100,13 +100,13 @@ public class Lexer implements TokenType {
                 continue;
             }
 
-            if ( strArray[i].equals("square" )&& (strArray[i+1].equals("root") || strArray[i+1].equals("route") || strArray[i+1].equals("rut") || strArray[i+1].equals("rat")|| strArray[i+1].equals("runt"))){
+            if (( strArray[i].equals("square" )|| strArray[i].equals("squared"))&& (strArray[i+1].equals("root") || strArray[i+1].equals("route") || strArray[i+1].equals("rut") || strArray[i+1].equals("rat")|| strArray[i+1].equals("runt"))){
                 Token tok = new Token(SQRT, 0);
                 tokens.add(tok);
                 i++;
                 continue;
             }
-            if ( strArray[i].equals("cube") && (strArray[i+1].equals("root") || strArray[i+1].equals("route") || strArray[i+1].equals("rut") || strArray[i+1].equals("rat")|| strArray[i+1].equals("runt"))){
+            if ( (strArray[i].equals("cube") || strArray[i].equals("cubed")) && (strArray[i+1].equals("root") || strArray[i+1].equals("route") || strArray[i+1].equals("rut") || strArray[i+1].equals("rat")|| strArray[i+1].equals("runt"))){
                 Token tok = new Token(CBRT, 0);
                 tokens.add(tok);
                 i++;
@@ -150,7 +150,7 @@ public class Lexer implements TokenType {
                 continue;
             }
 
-            if ( strArray[i].equals( "cosine") || strArray[i].equals("cosign")|| strArray[i].equals("arccosin")){
+            if ( strArray[i].equals( "cosine") || strArray[i].equals("cosign")|| strArray[i].equals("cosin") || strArray[i].equals("cos") || strArray[i].equals("cost")){
                 Token tok = new Token(COS, 0);
                 tokens.add(tok);
                 continue;
