@@ -57,7 +57,10 @@
         android:layout_marginBottom="64dp"
         android:layout_above="@+id/answerText"
         android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
+        android:layout_alignParentStart="true"
+        android:layout_toStartOf="@+id/answerButton"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
 
     <TextView
         android:text="I heard:"
@@ -78,35 +81,9 @@
         android:id="@+id/heardText"
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true" />
-    <Button
-        android:text="Operators"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignTop="@+id/inputTextbox"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:id="@+id/opButton"
-        android:layout_alignBottom="@+id/inputTextbox"
-        android:textAppearance="@style/TextAppearance.AppCompat" />
 
-    <Button
-        android:text="Close"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:id="@+id/opClose"
-        android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true"
-        android:layout_below="@+id/inputTextbox"
-        android:textAppearance="@style/TextAppearance.AppCompat" />
-    <ListView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_toEndOf="@+id/inputTextbox"
-        android:layout_above="@+id/opClose"
-        android:id="@+id/opList"
-        android:entries="@array/operators"
-        android:layout_alignLeft="@+id/opButton"
-        android:layout_alignStart="@+id/opButton" />
+
+
 
     <Button
         android:text="Help"
@@ -116,5 +93,37 @@
         android:layout_alignParentLeft="true"
         android:layout_alignParentStart="true"
         android:id="@+id/helpButton" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignLeft="@+id/answerButton"
+        android:layout_alignStart="@+id/answerButton"
+        android:id="@+id/opList"
+        android:layout_above="@+id/inputTextbox"
+        android:entries="@array/operators"
+        android:layout_below="@+id/helpButton" />
+
+    <Button
+        android:text="operator symbols"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/opList"
+        android:layout_alignStart="@+id/opList"
+        android:layout_marginLeft="11dp"
+        android:layout_marginStart="11dp"
+        android:id="@+id/opButton" />
+
+    <Button
+        android:text="Close symbols"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/opClose"
+        android:layout_alignParentTop="true"
+        android:layout_alignLeft="@+id/opButton"
+        android:layout_alignStart="@+id/opButton" />
 
 </RelativeLayout>

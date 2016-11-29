@@ -50,7 +50,7 @@ public class MainActivity extends Activity {
 
         Button   micButton;
         Button   solveButton;
-        Button opButton;
+
 
         //Hook on to widgets to modify later during runtime
         inputText  = (EditText)findViewById(R.id.inputTextbox);
@@ -58,7 +58,7 @@ public class MainActivity extends Activity {
         answerText  = (TextView)findViewById(R.id.answerText);
         micButton     = (Button)findViewById(R.id.micButton);
         solveButton     = (Button)findViewById(R.id.answerButton);
-        opButton = (Button)findViewById(R.id.opButton);
+        Button opButton = (Button)findViewById(R.id.opButton);
         Button opClose = (Button)findViewById(R.id.opClose);
         micButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -110,20 +110,25 @@ public class MainActivity extends Activity {
 
     private void opClick(){
         ListView list = (ListView)findViewById(R.id.opList);
-        list.setVisibility(View.VISIBLE);
+
         Button opClose = (Button) findViewById(R.id.opClose);
-        opClose.setVisibility(View.VISIBLE);
+
         Button opButton = (Button)findViewById(R.id.opButton);
+
+        list.setVisibility(View.VISIBLE);
+        opClose.setVisibility(View.VISIBLE);
         opButton.setVisibility(View.GONE);
 
     }
     private void closeOp(){
         ListView list = (ListView)findViewById(R.id.opList);
-        list.setVisibility(View.GONE);
+
         Button opClose = (Button) findViewById(R.id.opClose);
-        opClose.setVisibility(View.GONE);
+
         Button opButton = (Button)findViewById(R.id.opButton);
+        list.setVisibility(View.GONE);
         opButton.setVisibility(View.VISIBLE);
+        opClose.setVisibility(View.GONE);
     }
 
     private void helpSpeech(){
