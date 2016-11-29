@@ -1,7 +1,7 @@
 package moinoue.mentalmath;
 
 /**
- * Created by Mohammed on 11/23/2016.
+ * Copyright (c) 2016 Vidhya, Mohammed
  * Binary Operators
  */
 

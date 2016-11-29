@@ -3,7 +3,7 @@ package moinoue.mentalmath;
 import android.media.session.MediaSession;
 
 /**
- * Created by VidhyaLakshmi on 11/20/2016.
+ * Copyright (c) 2016 Vidhya, Mohammed
  */
 
 public class Token implements TokenType {

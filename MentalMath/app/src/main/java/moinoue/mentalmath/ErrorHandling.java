@@ -3,7 +3,7 @@ package moinoue.mentalmath;
 import java.util.ArrayList;
 
 /**
- * Created by Mohammed on 11/24/2016.
+ * Copyright (c) 2016 Vidhya, Mohammed
  */
 
 public class ErrorHandling {

@@ -1,5 +1,9 @@
 package moinoue.mentalmath;
 
+/**
+ * Copyright (c) 2016 Vidhya, Mohammed
+ */
+
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.os.Build;

@@ -1,7 +1,7 @@
 package moinoue.mentalmath;
 
 /**
- * Created by Mohammed on 11/23/2016.
+ * Copyright (c) 2016 Vidhya, Mohammed
  * AST is just an empty parent class for the purpose of building the AST
  */
 

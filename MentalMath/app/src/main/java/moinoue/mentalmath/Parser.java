@@ -2,7 +2,7 @@ package moinoue.mentalmath;
 
 
 /**
- * Created by Mohammed on 11/21/2016.
+ * Copyright (c) 2016 Vidhya, Mohammed
  */
 
 public class Parser implements TokenType {
@@ -95,7 +95,8 @@ public class Parser implements TokenType {
 
         if  ((currentToken.getType() == MULT) || (currentToken.getType() == DIV) || (currentToken.getType() == MOD) || (currentToken.getType() == POW) || (currentToken.getType() == ROOT)) {
             Token token = currentToken;
-            if (token.getType() == MULT) {
+            eat(currentToken.getType());
+           /* if (token.getType() == MULT) {
                 eat(MULT);
             }
             if (token.getType() == DIV) {
@@ -109,7 +110,8 @@ public class Parser implements TokenType {
             }
             if (token.getType() == ROOT) {
                 eat(ROOT);
-            }
+
+            }*/
             result = new BinOp(result, token, term());
         }
         return result;
@@ -120,12 +122,14 @@ public class Parser implements TokenType {
 
         while ((currentToken.getType() == PLUS) || (currentToken.getType() == MINUS)){
             Token token = currentToken;
-            if (token.getType() == PLUS) {
+            eat(currentToken.getType());
+            /*if (token.getType() == PLUS) {
                 eat(PLUS);
             }
             if (token.getType() == MINUS) {
                 eat(MINUS);
-            }
+
+            }*/
             result = new BinOp(result, token, term());
         }
         return result;

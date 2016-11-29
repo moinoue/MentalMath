@@ -1,5 +1,9 @@
 package moinoue.mentalmath;
 
+/**
+ * Copyright (c) 2016 Vidhya, Mohammed
+ */
+
 public interface TokenType{
 
     int NUMBERS = 0;  //numbers (integers/floats)
