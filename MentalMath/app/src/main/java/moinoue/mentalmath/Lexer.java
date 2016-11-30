@@ -150,7 +150,7 @@ public class Lexer implements TokenType {
                 continue;
             }
 
-            if ( strArray[i].equals( "cosine") || strArray[i].equals("cosign")|| strArray[i].equals("cosin") || strArray[i].equals("cos") || strArray[i].equals("cost")){
+            if ( strArray[i].equals( "cosine") || strArray[i].equals("cosign")|| strArray[i].equals("cosin") || strArray[i].equals("cos") || strArray[i].equals("cost") || strArray[i].equals("cause")){
                 Token tok = new Token(COS, 0);
                 tokens.add(tok);
                 continue;

@@ -66,7 +66,6 @@ public class MainActivity extends Activity {
                 promptSpeechInput();
             }
         });
-        Button helpButton = (Button)findViewById(R.id.helpButton);
 
         ListView list = (ListView)findViewById(R.id.opList);
         list.setVisibility(View.GONE);
@@ -90,12 +89,7 @@ public class MainActivity extends Activity {
                 closeOp();
             }
         });
-        helpButton.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                helpSpeech();
-            }
-        });
+
         textToSpeech = new TextToSpeech(MainActivity.this, new TextToSpeech.OnInitListener(){
             @Override
             public void onInit(int status){
@@ -131,15 +125,13 @@ public class MainActivity extends Activity {
         opClose.setVisibility(View.GONE);
     }
 
-    private void helpSpeech(){
-        activateSpeech("You can either speak a math problem, for example, log of 2 plus square root of 3 minus 26, or type in a math expression using the operators provided.");
-    }
+
 
     private void promptSpeechInput(){
         Intent intent = new Intent(RecognizerIntent.ACTION_RECOGNIZE_SPEECH);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE_MODEL,RecognizerIntent.LANGUAGE_MODEL_FREE_FORM);
         intent.putExtra(RecognizerIntent.EXTRA_LANGUAGE, Locale.ENGLISH);
-        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, getString(R.string.input_text));
+        intent.putExtra(RecognizerIntent.EXTRA_PROMPT, "Say a math problem");
         try{
             startActivityForResult(intent, REQUIRED_SPEECH_CODE);
         }catch(ActivityNotFoundException e) {

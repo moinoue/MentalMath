@@ -3,31 +3,31 @@
  -->
 <resources>
     <string name="app_name">MentalMath</string>
-    <string name="input_text">Type in a math expression</string>
+    <string name="input_text">Type a math problem or press the \"Speak\" button</string>
     <string name="syntax_text"> </string>
     <string name="answer_text">Answer</string>
     <string name="button_text">Solve</string>
     <string name="mic_button">Speak</string>
     <string name="not_supported">Sorry, not supported!</string>
     <string-array name="operators">
-        <item>+</item>
-        <item>-</item>
-        <item>*</item>
-        <item>/</item>
-        <item>%</item>
-        <item>log</item>
-        <item>exp</item>
-        <item>pow</item>
-        <item>sqrt</item>
-        <item>cbrt</item>
-        <item>root</item>
-        <item>(</item>
-        <item>)</item>
-        <item>sin</item>
-        <item>cos</item>
-        <item>tan</item>
-        <item>asin</item>
-        <item>acos</item>
-        <item>atan</item>
+        <item>+ \"plus\"</item>
+        <item>- \"minus\"</item>
+        <item>* \"times\"</item>
+        <item>/ \"divide\"</item>
+        <item>% \"mod\"</item>
+        <item>log \"log\"</item>
+        <item>exp \"exponent\"</item>
+        <item>pow \"power\"</item>
+        <item>sqrt \"square root\"</item>
+        <item>cbrt \"cube root\"</item>
+        <item>root \"root\"</item>
+        <item>( \"left paren\"</item>
+        <item>) \"right paren\"</item>
+        <item>sin \"sine\"</item>
+        <item>cos \"cosine\"</item>
+        <item>tan \"tangent\"</item>
+        <item>asin \"arcsine\"</item>
+        <item>acos \"arccos\"</item>
+        <item>atan \"arctangent\"</item>
     </string-array>
 </resources>
