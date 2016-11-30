@@ -133,10 +133,16 @@ public class Parser implements TokenType {
             }
             result = new BinOp(result, token, term());
         }
+
         return result;
     }
 
     public String print(){
-        return Float.toString(expr().evaluate());
+        float result = expr().evaluate();
+        //Check if there is still tokens left
+        if (currentToken.getType() != EOL){
+            errorHandling.errorAdd("Unexpected token '" + currentToken.output() + "' at position: " + lexer.getPosition());
+        }
+        return Float.toString(result);
     }
 }
