@@ -15,6 +15,7 @@
         <item>* \"times\"</item>
         <item>/ \"divide\"</item>
         <item>% \"mod\"</item>
+        <item>ln \"natural log\"</item>
         <item>log \"log\"</item>
         <item>exp \"exponent\"</item>
         <item>pow \"power\"</item>
