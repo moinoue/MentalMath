@@ -111,11 +111,20 @@ public class Lexer implements TokenType {
                 tokens.add(tok);
                 continue;
             }
-
+            if ( strArray[i].equals("sqrt")){
+                Token tok = new Token(SQRT, 0);
+                tokens.add(tok);
+                continue;
+            }
             if (( strArray[i].equals("square" )|| strArray[i].equals("squared"))&& (strArray[i+1].equals("root") || strArray[i+1].equals("route") || strArray[i+1].equals("rut") || strArray[i+1].equals("rat")|| strArray[i+1].equals("runt"))){
                 Token tok = new Token(SQRT, 0);
                 tokens.add(tok);
                 i++;
+                continue;
+            }
+            if ( strArray[i].equals("cbrt")){
+                Token tok = new Token(CBRT, 0);
+                tokens.add(tok);
                 continue;
             }
             if ( (strArray[i].equals("cube") || strArray[i].equals("cubed")) && (strArray[i+1].equals("root") || strArray[i+1].equals("route") || strArray[i+1].equals("rut") || strArray[i+1].equals("rat")|| strArray[i+1].equals("runt"))){
