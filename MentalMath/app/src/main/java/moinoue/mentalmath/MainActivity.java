@@ -36,11 +36,12 @@ public class MainActivity extends Activity {
     private EditText inputText;
     private TextView answerText;
     private TextView heardText;
+    private ListView list;
     private Lexer lexer;
     private Parser parser;
     private ErrorHandling errorHandling;
     private TextToSpeech textToSpeech;
-
+    private boolean showList;
     private final int REQUIRED_SPEECH_CODE = 100;
 
     @Override
@@ -50,7 +51,7 @@ public class MainActivity extends Activity {
 
         Button   micButton;
         Button   solveButton;
-
+        showList = false;
 
         //Hook on to widgets to modify later during runtime
         inputText  = (EditText)findViewById(R.id.inputTextbox);
@@ -59,17 +60,15 @@ public class MainActivity extends Activity {
         micButton     = (Button)findViewById(R.id.micButton);
         solveButton     = (Button)findViewById(R.id.answerButton);
         Button opButton = (Button)findViewById(R.id.opButton);
-        Button opClose = (Button)findViewById(R.id.opClose);
         micButton.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View view) {
                 promptSpeechInput();
             }
         });
-
-        ListView list = (ListView)findViewById(R.id.opList);
+        list = (ListView)findViewById(R.id.opList);
+        //List is invisible at the start
         list.setVisibility(View.GONE);
-        opClose.setVisibility(View.GONE);
 
         solveButton.setOnClickListener(new View.OnClickListener(){
             @Override
@@ -83,19 +82,13 @@ public class MainActivity extends Activity {
                 opClick();
             }
         });
-        opClose.setOnClickListener(new View.OnClickListener(){
-            @Override
-            public void onClick(View view) {
-                closeOp();
-            }
-        });
 
         textToSpeech = new TextToSpeech(MainActivity.this, new TextToSpeech.OnInitListener(){
             @Override
             public void onInit(int status){
                 if(status == TextToSpeech.SUCCESS){
                     textToSpeech.setLanguage(Locale.US);
-                    activateSpeech("Welcome to Mental Math, the speech operated calculator!");
+                        activateSpeech("Welcome to Mental Math, the speech operated calculator!");
                 }
             }
         });
@@ -103,28 +96,13 @@ public class MainActivity extends Activity {
     }
 
     private void opClick(){
-        ListView list = (ListView)findViewById(R.id.opList);
-
-        Button opClose = (Button) findViewById(R.id.opClose);
-
-        Button opButton = (Button)findViewById(R.id.opButton);
-
-        list.setVisibility(View.VISIBLE);
-        opClose.setVisibility(View.VISIBLE);
-        opButton.setVisibility(View.GONE);
-
+        showList = !showList;
+        if (showList) {
+            list.setVisibility(View.VISIBLE);
+        }else{
+            list.setVisibility(View.GONE);
+        }
     }
-    private void closeOp(){
-        ListView list = (ListView)findViewById(R.id.opList);
-
-        Button opClose = (Button) findViewById(R.id.opClose);
-
-        Button opButton = (Button)findViewById(R.id.opButton);
-        list.setVisibility(View.GONE);
-        opButton.setVisibility(View.VISIBLE);
-        opClose.setVisibility(View.GONE);
-    }
-
 
 
     private void promptSpeechInput(){

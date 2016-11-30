@@ -82,6 +82,9 @@ public class Token implements TokenType {
         if (type == ATAN){
             return "arc tan";
         }
+        if (type == LN){
+            return "ln";
+        }
         return "";
     }
 

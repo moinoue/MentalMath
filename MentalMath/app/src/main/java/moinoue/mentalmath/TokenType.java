@@ -28,6 +28,7 @@ public interface TokenType{
     int ASIN     = 19; //Arc Sine
     int ACOS     = 20; //Arc Cosine
     int ATAN     = 21; //Arc Tangent
+    int LN       = 22; //Natural Log
 
     int EOL     = 100; //end of line
 

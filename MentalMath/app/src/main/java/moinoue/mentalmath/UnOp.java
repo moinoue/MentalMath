@@ -31,6 +31,9 @@ public class UnOp  extends AST implements TokenType{
             return value;
         }
         if (op.getType() == LOG){
+            return (float)Math.log10((double)right.evaluate());
+        }
+        if (op.getType() == LN){
             return (float)Math.log((double)right.evaluate());
         }
         if (op.getType() == EXP){

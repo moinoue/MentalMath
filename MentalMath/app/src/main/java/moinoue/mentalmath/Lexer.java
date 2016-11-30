@@ -84,6 +84,18 @@ public class Lexer implements TokenType {
                 tokens.add(tok);
                 continue;
             }
+            if (strArray[i].equals("ln")){
+                Token tok = new Token(LN, 0);
+                tokens.add(tok);
+                continue;
+            }
+            if (strArray[i].equals("natural") && (strArray[i+1].equals("log") || strArray[i+1].equals("logarithm"))){
+                i++;
+                Token tok = new Token(LN, 0);
+                tokens.add(tok);
+                continue;
+            }
+
             if (strArray[i].equals("log") || strArray[i].equals("logarithm") ){
                 Token tok = new Token(LOG, 0);
                 tokens.add(tok);

@@ -21,13 +21,17 @@ public class Parser implements TokenType {
             if (currentToken.getType() == tokenType) {
                 currentToken = lexer.getNextToken();
             }else {
-                errorHandling.errorAdd("Unexpected token at position: " + lexer.getPosition());
+                Token temp = new Token(tokenType,0);
+                errorHandling.errorAdd("Expected a token '" + temp.output() + "' at position: " + lexer.getPosition());
             }
     }
 
     private AST factor(){
         Token token = currentToken;
-
+        if (token.getType() == LN){
+            eat(LN);
+            return new UnOp(token,factor());
+        }
         if (token.getType() == LOG){
             eat(LOG);
             return new UnOp(token,factor());
@@ -86,17 +90,16 @@ public class Parser implements TokenType {
             eat(RPAR);
             return result;
         }
-        errorHandling.errorAdd("Unexpected token at position: " + lexer.getPosition());
+        errorHandling.errorAdd("Expected a literal at position: " + lexer.getPosition());
         return new Number(new Token(0,0));
     }
 
     private AST term(){
         AST result = factor();
 
-        if  ((currentToken.getType() == MULT) || (currentToken.getType() == DIV) || (currentToken.getType() == MOD) || (currentToken.getType() == POW) || (currentToken.getType() == ROOT)) {
+        while  ((currentToken.getType() == MULT) || (currentToken.getType() == DIV) || (currentToken.getType() == MOD) || (currentToken.getType() == POW) || (currentToken.getType() == ROOT)) {
             Token token = currentToken;
-            eat(currentToken.getType());
-           /* if (token.getType() == MULT) {
+            if (token.getType() == MULT) {
                 eat(MULT);
             }
             if (token.getType() == DIV) {
@@ -110,9 +113,8 @@ public class Parser implements TokenType {
             }
             if (token.getType() == ROOT) {
                 eat(ROOT);
-
-            }*/
-            result = new BinOp(result, token, term());
+            }
+            result = new BinOp(result, token, factor());
         }
         return result;
     }
@@ -122,14 +124,13 @@ public class Parser implements TokenType {
 
         while ((currentToken.getType() == PLUS) || (currentToken.getType() == MINUS)){
             Token token = currentToken;
-            eat(currentToken.getType());
-            /*if (token.getType() == PLUS) {
+            if (token.getType() == PLUS) {
                 eat(PLUS);
             }
             if (token.getType() == MINUS) {
                 eat(MINUS);
 
-            }*/
+            }
             result = new BinOp(result, token, term());
         }
         return result;
