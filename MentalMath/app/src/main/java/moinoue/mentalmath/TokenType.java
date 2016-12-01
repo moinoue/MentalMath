@@ -29,6 +29,8 @@ public interface TokenType{
     int ACOS     = 20; //Arc Cosine
     int ATAN     = 21; //Arc Tangent
     int LN       = 22; //Natural Log
+    int PAR      = 23; //Percentage
+
 
     int EOL     = 100; //end of line
 

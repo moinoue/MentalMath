@@ -97,7 +97,7 @@ public class Parser implements TokenType {
     private AST term(){
         AST result = factor();
 
-        while  ((currentToken.getType() == MULT) || (currentToken.getType() == DIV) || (currentToken.getType() == MOD) || (currentToken.getType() == POW) || (currentToken.getType() == ROOT)) {
+        while  ((currentToken.getType() == MULT) || (currentToken.getType() == DIV) || (currentToken.getType() == MOD) || (currentToken.getType() == POW) || (currentToken.getType() == ROOT) || (currentToken.getType() == PAR)) {
             Token token = currentToken;
             if (token.getType() == MULT) {
                 eat(MULT);
@@ -113,6 +113,9 @@ public class Parser implements TokenType {
             }
             if (token.getType() == ROOT) {
                 eat(ROOT);
+            }
+            if (token.getType() == PAR){
+                eat(PAR);
             }
             result = new BinOp(result, token, factor());
         }

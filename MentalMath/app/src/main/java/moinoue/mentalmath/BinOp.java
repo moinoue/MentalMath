@@ -38,6 +38,11 @@ public class BinOp extends AST implements TokenType {
         if (op.getType() == ROOT){
             return (float)(Math.pow(Math.abs((double)right.evaluate()),(1/(double)left.evaluate())));
         }
+        if (op.getType() == PAR){
+            float leftPercentage = (left.evaluate() / 100)
+            return (right.evaluate() * leftPercentage);
+        }
+        
         //Should not reach this code bring up error if you do
         return 0;
     }
