@@ -22,8 +22,9 @@
         <item>sqrt \"square root\"</item>
         <item>cbrt \"cube root\"</item>
         <item>root \"root\"</item>
-        <item>( \"left paren\"</item>
-        <item>) \"right paren\"</item>
+        <item>Percentage \"percent\"</item>
+        <item>( \"opened\"</item>
+        <item>) \"closed\"</item>
         <item>sin \"sine\"</item>
         <item>cos \"cosine\"</item>
         <item>tan \"tangent\"</item>

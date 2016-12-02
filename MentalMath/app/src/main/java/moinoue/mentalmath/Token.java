@@ -86,7 +86,7 @@ public class Token implements TokenType {
             return "ln";
         }
         if (type == PAR){
-            return "percent of"
+            return "percent of";
         }
         return "";
     }

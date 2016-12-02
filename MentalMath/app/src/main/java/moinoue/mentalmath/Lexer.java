@@ -32,7 +32,7 @@ public class Lexer implements TokenType {
                 tokens.add(tok);
                 continue;
             }
-            if (strArray[i].equals("right") || strArray[i].equals("closed") || strArray[i].equals("close")) {
+            if (strArray[i].equals("right") || strArray[i].equals("closed") || strArray[i].equals("close")|| strArray[i].equals("clothes")|| strArray[i].equals("cloth")|| strArray[i].equals("write")|| strArray[i].equals("light")|| strArray[i].equals("wight")) {
                 Token tok = new Token(RPAR, 0);
                 tokens.add(tok);
                 continue;
@@ -42,7 +42,7 @@ public class Lexer implements TokenType {
                 tokens.add(tok);
                 continue;
             }
-            if (strArray[i].equals("left") || strArray[i].equals("opened") || strArray[i].equals("open")) {
+            if (strArray[i].equals("left") || strArray[i].equals("opened") || strArray[i].equals("open")|| strArray[i].equals("let")|| strArray[i].equals("upon")|| strArray[i].equals("oven")) {
                 Token tok = new Token(LPAR, 0);
                 tokens.add(tok);
                 continue;
@@ -232,6 +232,15 @@ public class Lexer implements TokenType {
                 Token tok = new Token(NUMBERS, 1);
                 tokens.add(tok);
                 continue;
+            }
+
+            if (Pattern.matches("[0-9]*\\.?[0-9]+%", strArray[i])){
+                String [] tempResult = strArray[i].split("(?<=%)|(?=%)");
+                System.out.println(tempResult[0]);
+                Token tok = new Token(NUMBERS, Float.parseFloat(tempResult[0]));
+                tokens.add(tok);
+                tok = new Token(PAR,0);
+                tokens.add(tok);
             }
 
             //This will catch no spaces between operators edge case
