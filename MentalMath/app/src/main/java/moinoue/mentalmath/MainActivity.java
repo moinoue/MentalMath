@@ -88,7 +88,7 @@ public class MainActivity extends Activity {
             public void onInit(int status){
                 if(status == TextToSpeech.SUCCESS){
                     textToSpeech.setLanguage(Locale.US);
-                        activateSpeech("Welcome to Mental Math, the speech operated calculator!");
+                        activateSpeech("Welcome to Mental Math");
                 }
             }
         });

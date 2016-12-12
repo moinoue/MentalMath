@@ -18,7 +18,7 @@
         <item>ln \"natural log\"</item>
         <item>log \"log\"</item>
         <item>exp \"exponent\"</item>
-        <item>pow \"power\"</item>
+        <item>^ \"power\"</item>
         <item>sqrt \"square root\"</item>
         <item>cbrt \"cube root\"</item>
         <item>root \"root\"</item>
